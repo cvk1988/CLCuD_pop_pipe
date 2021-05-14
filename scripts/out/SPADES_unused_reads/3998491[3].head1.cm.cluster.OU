@@ -1,0 +1,7 @@
+
+
+== Error ==  file not found: /xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/results/RAPiD-Genomics_F159_UAZ_146201_P002_WA03_i5-515_i7-82_S271_L002/bowtie2/unused_reads/_virus_rm.1.fastq (left reads, library number: 1, library type: paired-end)
+
+In case you have troubles running SPAdes, you can write to spades.support@cab.spbu.ru
+or report an issue on our GitHub repository github.com/ablab/spades
+Please provide us with params.txt and spades.log files from the output directory.
