@@ -5,7 +5,7 @@ export CWD=$PWD
 # Location of raw data 
 ## Should I not have this, and instead run the config in the folder with the raw so I have a more robust script?
 
-export RAW="/xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/capture_seq/raw/plate2/Plate2"
+export RAW="/home/u32/corykeith/CLCuD_pop_pipe_2/raw"
 export OUT_DIR="/xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/results"
 export PROFILE="/xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/capture_seq_run1/profile.txt"
 

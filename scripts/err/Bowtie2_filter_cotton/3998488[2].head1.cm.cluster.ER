@@ -1,8 +1,0 @@
-Use of uninitialized value $bt2_args[4] in join or string at /xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 423.
-Use of uninitialized value $bt2_args[5] in join or string at /xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 423.
-Use of uninitialized value in exists at /xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 81.
-Use of uninitialized value in exists at /xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 81.
-Use of uninitialized value $bt2_args[4] in join or string at /xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 459.
-Use of uninitialized value $bt2_args[5] in join or string at /xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 459.
-(ERR): Could not open output file '/xdisk/jkbrown/mig2020/rsgrps/jkbrown/cory/results/RAPiD-Genomics_F159_UAZ_146201_P002_WA03_i5-515_i7-82_S271_L002/bowtie2/RAPiD-Genomics_F159_UAZ_146201_P002_WA02_i5-515_i7-27_S270_L002.SAM' for writing.
-Exiting now ...

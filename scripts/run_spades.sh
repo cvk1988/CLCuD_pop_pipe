@@ -23,9 +23,8 @@ SMPLE=`head -n +${PBS_ARRAY_INDEX} $PROFILE | tail -n 1`
 F1="${SMPLE}_R1_001.fastq"
 R1="${SMPLE}_R2_001.fastq"
 
-export SAMPLE_FOLD="$SPADESOUT/${SAMPLE}"
-init_dir "$SAMPLE_FOLD"
+export SPADESOUT="${SMPLE}"
 
-$SPADES/spades.py --isolate -o $SAMPLE_FOLD -1 $BOWOUT/${SAMPLE}_virus_rm.1.fastq -2 $BOWOUT/${SAMPLE}_virus_rm.2.fastq
+$SPADES/spades.py --isolate -o ${OUT_DIR}/${SMPLE}/spades -1 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_virus_rm.1.fastq" -2 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_virus_rm.2.fastq"
 
 

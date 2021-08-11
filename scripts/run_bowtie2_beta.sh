@@ -12,10 +12,10 @@ SMPLE=`head -n +${PBS_ARRAY_INDEX} $PROFILE | tail -n 1`
 F1="${SMPLE}_R1_001.fastq"
 R1="${SMPLE}_R2_001.fastq"
 
-
+export BOWOUT="${SMPLE}/bowtie2/unused_reads"
 
 echo "$BOWTIE/bowtie2 --un-conc $BOWOUT/${SMPLE}_beta_rm.fastq -x $INDEX/CLCuMB_WA01_circle_sim.fasta -q -1 "$BOWOUT"/${SMPLE}_cotton_rm.1.fastq -q -2 "$BOWOUT"/${SMPLE}_cotton_rm.2.fastq -S "$OUT_DIR"/bowtie2/${SMPLE}_beta.SAM"
 
-$BOWTIE/bowtie2 --un-conc $BOWOUT/${SMPLE}_beta_rm.fastq -x $INDEX/CLCuMB_WA01_circle_sim.fasta -q -1 "$BOWOUT"/${SMPLE}_cotton_rm.1.fastq -q -2 "$BOWOUT"/${SMPLE}_cotton_rm.2.fastq -S "$OUT_DIR"/bowtie2/${SMPLE}_beta.SAM
+$BOWTIE/bowtie2 --un-conc ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_beta_rm.fastq" -x $INDEX/CLCuMB_WA01_circle_sim.fasta -q -1 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_cotton_rm.1.fastq" -q -2 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_cotton_rm.2.fastq" -S ${OUT_DIR}/${SMPLE}/bowtie2/${SMPLE}_beta.SAM
 
 
