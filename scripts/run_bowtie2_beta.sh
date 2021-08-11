@@ -1,11 +1,11 @@
 #!/bin/sh
 
 # Your job will use 1 node, 28 cores, and 168gb of memory total.
-#SBATCH -N [1[-1]]
-#SBATCH -n [28]
-#SBATCH --mem=[28][G]
-#SBATCH --shared
-#SBATCH -t [48:00:00]
+#SBATCH -N 1
+#SBATCH -n 28
+#SBATCH --mem=168G
+
+#SBATCH -t 48:00:00
 
 # calls the profile variable to pull sample names from a list iteratively
 export SMPLE=`head -n +${PBS_ARRAY_INDEX} $PROFILE | tail -n 1`

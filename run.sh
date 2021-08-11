@@ -53,7 +53,7 @@ export NUM_JOB=$(wc -l < "$PROFILE")
 
 echo "launching $SCRIPT_DIR/run_bowtie2.sh as a job."
 #-J tells the number of jobs to submit to the PBS array
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR,STDOUT_DIR,INDEX,RAW,PROFILE] --job-name remove_cotton -e "$STDERR_DIR" -o "$STDOUT_DIR" -J 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2.sh`
+JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR,STDOUT_DIR,INDEX,RAW,PROFILE] --job-name remove_cotton -e "$STDERR_DIR" -o "$STDOUT_DIR" -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
         echo Job: \"$JOB_ID\"
@@ -75,7 +75,7 @@ init_dir "$STDERR_DIR2" "$STDOUT_DIR2"
 echo " launching $SCRIPT_DIR/run_bowtie2_beta.sh in queue"
 echo "previous job ID $PREV_JOB_ID"
 
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR2,STDOUT_DIR2,INDEX,PROFILE] --job-name align_beta -e "$STDERR_DIR2" -o "$STDOUT_DIR2" --depend=afterok:$PREV_JOB_ID -J 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_beta.sh`
+JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR2,STDOUT_DIR2,INDEX,PROFILE] --job-name align_beta -e "$STDERR_DIR2" -o "$STDOUT_DIR2" -d dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_beta.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
         echo Job: \"$JOB_ID\"
@@ -97,7 +97,7 @@ init_dir "$STDERR_DIR3" "$STDOUT_DIR3"
 echo " launching $SCRIPT_DIR/run_bowtie2_virus.sh in queue"
 echo "previous job ID $PREV_JOB_ID"
 
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR3,STDOUT_DIR3,INDEX,PROFILE] --job-name align_virus -e "$STDERR_DIR3" -o "$STDOUT_DIR3" --depend=afterok:$PREV_JOB_ID -J 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_virus.sh`
+JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR3,STDOUT_DIR3,INDEX,PROFILE] --job-name align_virus -e "$STDERR_DIR3" -o "$STDOUT_DIR3" -d dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_virus.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
         echo Job: \"$JOB_ID\"
@@ -120,7 +120,7 @@ init_dir "$STDERR_DIR4" "$STDOUT_DIR4"
 echo " launching $SCRIPT_DIR/run_spades.sh in queue"
 echo "previous job ID $PREV_JOB_ID"
 
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,SPADES,WORKER_DIR,OUT_DIR,STDERR_DIR4,STDOUT_DIR4,SPADES,SPADESOUT,PROFILE] --job-name denovo_unused -e "$STDERR_DIR4" -o "$STDOUT_DIR4" --depend=afterok:$PREV_JOB_ID -J 1-$NUM_JOB $SCRIPT_DIR/run_spades.sh`
+JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,SPADES,WORKER_DIR,OUT_DIR,STDERR_DIR4,STDOUT_DIR4,SPADES,SPADESOUT,PROFILE] --job-name denovo_unused -e "$STDERR_DIR4" -o "$STDOUT_DIR4" -d dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_spades.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
         echo Job: \"$JOB_ID\"

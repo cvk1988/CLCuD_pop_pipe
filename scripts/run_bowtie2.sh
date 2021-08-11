@@ -27,8 +27,8 @@ function init_dir {
 export SMPLE=`head -n +${PBS_ARRAY_INDEX} $PROFILE | tail -n 1`
 
 #gives the full name of the file of raw data
-F1="${SMPLE}_R1_001.fastq"
-R1="${SMPLE}_R2_001.fastq"
+F1="${SMPLE}_R1_001.fastq*"
+R1="${SMPLE}_R2_001.fastq*"
 
 # calls individual sample directory
 export BOWOUT="${SMPLE}/bowtie2/unused_reads"
