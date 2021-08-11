@@ -18,13 +18,15 @@ if [[ ! -d "$OUT_DIR" ]]; then
     echo "$OUT_DIR does not exist. The folder was created."
     mkdir $OUT_DIR
 fi
-## new code with a "while loop" this builds individual directories
+## new code with a "while loop" this builds individual directories from the list of samples in the profile list
 while read SAMPLE; do
   echo "$SAMPLE"
     export SAMPLE_DIR="$OUT_DIR/$SAMPLE"
     export BOWOUT="$SAMPLE_DIR/bowtie2/unused_reads"   
     export SPADESOUT="$SAMPLE_DIR/spades"
-    init_dir "$SAMPLE_DIR" "$BOWOUT" "$SPADESOUT"
+    export ALNMNTOUT="$SAMPLE_DIR/alignments"
+    export CONSENSUS="$SAMPLE_DIR/consensus"
+    init_dir "$SAMPLE_DIR" "$BOWOUT" "$SPADESOUT" "$ALNMNTOUT" "$CONSENSUS"
 done <$PROFILE
 
 
@@ -33,19 +35,22 @@ done <$PROFILE
 #
 # Job submission
 # 
-ARGS="-p $QUEUE --account=$GROUP --mail-user $MAIL_USER --mail_type $MAIL_TYPE"
+ARGS="-p $QUEUE --account=$GROUP --mail-user $MAIL_USER --mail-type $MAIL_TYPE"
+
 #
 # Bowtie2 to cotton
 #
+
 Prog="Bowtie2_filter_cotton"
 export STDERR_DIR="$SCRIPT_DIR/err/$Prog"
 export STDOUT_DIR="$SCRIPT_DIR/out/$Prog"
 init_dir "$STDERR_DIR" "$STDOUT_DIR"
+
 # how many jobs in the array
 export NUM_JOB=$(wc -l < "$PROFILE")
-#directory for output DOES NOT WORK. REMOVE FROM RUN SCRIPT
-#export BOWOUT="$OUT_DIR/$SAMPLE_DIR/bowtie2/unused_reads"
-#init_dir "$BOWOUT"
+
+
+
 echo "launching $SCRIPT_DIR/run_bowtie2.sh as a job."
 #-J tells the number of jobs to submit to the PBS array
 JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR,STDOUT_DIR,INDEX,RAW,PROFILE] --job-name remove_cotton -e "$STDERR_DIR" -o "$STDOUT_DIR" -J 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2.sh`

@@ -15,7 +15,7 @@ R1="${SMPLE}_R2_001.fastq"
 ### directory for individual files go here
 
 
-$SAMTOOL/samtools fixmate -0 bam,level=1 -m #
+$SAMTOOL/samtools fixmate -0 bam,level=1 -m 
 
 
 
