@@ -8,7 +8,7 @@
 #SBATCH -t 48:00:00
 
 # calls the profile variable to pull sample names from a list iteratively
-export SMPLE=`head -n +${PBS_ARRAY_INDEX} $PROFILE | tail -n 1`
+export SMPLE=`head -n +${SLURM_ARRAY_TASK_ID} $PROFILE | tail -n 1`
 
 # calls individual sample directory
 export BOWOUT="${SMPLE}/bowtie2/unused_reads"

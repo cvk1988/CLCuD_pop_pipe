@@ -8,7 +8,7 @@
 #SBATCH -t 48:00:00
 
 
-SMPLE=`head -n +${PBS_ARRAY_INDEX} $PROFILE | tail -n 1`
+SMPLE=`head -n +${SLURM_ARRAY_TASK_ID} $PROFILE | tail -n 1`
 
 F1="${SMPLE}_R1_001.fastq"
 R1="${SMPLE}_R2_001.fastq"
