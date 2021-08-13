@@ -16,6 +16,6 @@ R1="${SMPLE}_R2_001.fastq"
 
 export BOWOUT="${SMPLE}/bowtie2/unused_reads"
 
-$BOWTIE/bowtie2 --un-conc ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_virus_rm.fastq" -x ${INDEX}/CLCuMuV_WA01_circle_sim.fasta -q -1 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_beta_rm.1.fastq" -q -2 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_beta_rm.2.fastq" -S ${OUT_DIR}/${SMPLE}/bowtie2/${SMPLE}_virus.SAM
+$BOWTIE/bowtie2 --un-conc ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_virus_rm.fastq" -x ${INDEX}/CLCuMuV_WA01_circle_sim.fasta -q -1 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_beta_rm.1.fastq" -q -2 ${OUT_DIR}/${SMPLE}/bowtie2/unused_reads/"${SMPLE}_beta_rm.2.fastq" -S ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_virus.SAM
 
 

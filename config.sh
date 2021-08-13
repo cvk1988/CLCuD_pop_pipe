@@ -23,7 +23,7 @@ export GEMSIM="$WORKER_DIR/GemSIM_v1.6_changed"
 export QUEUE="standard"
 export GROUP="jkbrown"
 export MAIL_USER="corykeith@email.arizona.edu"
-export MAIL_TYPE="ALL"
+export MAIL_TYPE="END"
 
 
 # --------------------------------------------------

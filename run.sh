@@ -24,7 +24,7 @@ while read SAMPLE; do
     export SAMPLE_DIR="$OUT_DIR/$SAMPLE"
     export BOWOUT="$SAMPLE_DIR/bowtie2/unused_reads"   
     export SPADESOUT="$SAMPLE_DIR/spades"
-    export ALNMNTOUT="$SAMPLE_DIR/alignments"
+    export ALNMNTOUT="$SAMPLE_DIR/bowtie2/alignments"
     export CONSENSUS="$SAMPLE_DIR/consensus"
     init_dir "$SAMPLE_DIR" "$BOWOUT" "$SPADESOUT" "$ALNMNTOUT" "$CONSENSUS"
 done <$PROFILE
@@ -50,13 +50,13 @@ init_dir "$STDERR_DIR" "$STDOUT_DIR"
 export NUM_JOB=$(wc -l < "$PROFILE")
 
 
-
+echo "$BOWTIE"
 echo "launching $SCRIPT_DIR/run_bowtie2.sh as a job."
 #-a tells the number of jobs to submit to the PBS array
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR,STDOUT_DIR,INDEX,RAW,PROFILE] --job-name remove_cotton -e "$STDERR_DIR" -o "$STDOUT_DIR" -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2.sh`
+JOB_ID=`sbatch $ARGS --export=ALL,BOWOUT=$BOWOUT,SAMPLE_DIR=$SAMPLE_DIR,BOWTIE=$BOWTIE,WORKER_DIR=$WORKER_DIR,OUT_DIR=$OUT_DIR,STDERR_DIR=$STDERR_DIR,STDOUT_DIR=$STDOUT_DIR,INDEX=$INDEX,RAW=$RAW,PROFILE=$PROFILE,ALNMNTOUT=$ALNMNTOUT -o $STDOUT_DIR/output.%a.out -e $STDERR_DIR/err.%a.out --job-name remove_cotton -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
-        JOB_ID=${JOB_ID#"Submitted batch job"}
+        JOB_ID=${JOB_ID#"Submitted batch job "}
 
         echo Job: \"$JOB_ID\"
         PREV_JOB_ID=$JOB_ID
@@ -77,10 +77,10 @@ init_dir "$STDERR_DIR2" "$STDOUT_DIR2"
 echo " launching $SCRIPT_DIR/run_bowtie2_beta.sh in queue"
 echo "previous job ID $PREV_JOB_ID"
 
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR2,STDOUT_DIR2,INDEX,PROFILE] --job-name align_beta -e "$STDERR_DIR2" -o "$STDOUT_DIR2" --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_beta.sh`
+JOB_ID=`sbatch $ARGS --export=ALL,BOWOUT=$BOWOUT,SAMPLE_DIR=$SAMPLE_DIR,BOWTIE=$BOWTIE,WORKER_DIR=$WORKER_DIR,OUT_DIR=$OUT_DIR,STDERR_DIR2=$STDERR_DIR2,STDOUT_DIR2=$STDOUT_DIR2,INDEX=$INDEX,RAW=$RAW,PROFILE=$PROFILE,ALNMNTOUT=$ALNMNTOUT --job-name align_beta -o $STDOUT_DIR2/output.%a.out -e $STDERR_DIR2/err.%a.out --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_beta.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
-        JOB_ID=${JOB_ID#"Submitted batch job"}
+        JOB_ID=${JOB_ID#"Submitted batch job "}
 
         echo Job: \"$JOB_ID\"
         PREV_JOB_ID=$JOB_ID
@@ -101,10 +101,10 @@ init_dir "$STDERR_DIR3" "$STDOUT_DIR3"
 echo " launching $SCRIPT_DIR/run_bowtie2_virus.sh in queue"
 echo "previous job ID $PREV_JOB_ID"
 
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,BOWTIE,WORKER_DIR,OUT_DIR,STDERR_DIR3,STDOUT_DIR3,INDEX,PROFILE] --job-name align_virus -e "$STDERR_DIR3" -o "$STDOUT_DIR3" --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_virus.sh`
+JOB_ID=`sbatch $ARGS --export=ALL,BOWOUT=$BOWOUT,SAMPLE_DIR=$SAMPLE_DIR,BOWTIE=$BOWTIE,WORKER_DIR=$WORKER_DIR,OUT_DIR=$OUT_DIR,STDERR_DIR3=$STDERR_DIR3,STDOUT_DIR3=$STDOUT_DIR3,INDEX=$INDEX,RAW=$RAW,PROFILE=$PROFILE,ALNMNTOUT=$ALNMNTOUT --job-name align_virus -o $STDOUT_DIR3/output.%a.out -e $STDERR_DIR3/err.%a.out --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_bowtie2_virus.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
-        JOB_ID=${JOB_ID#"Submitted batch job"}
+        JOB_ID=${JOB_ID#"Submitted batch job "}
 
         echo Job: \"$JOB_ID\"
         PREV_JOB_ID=$JOB_ID
@@ -126,14 +126,15 @@ init_dir "$STDERR_DIR4" "$STDOUT_DIR4"
 echo " launching $SCRIPT_DIR/run_spades.sh in queue"
 echo "previous job ID $PREV_JOB_ID"
 
-JOB_ID=`sbatch $ARGS --export=[BOWOUT,SAMPLE_DIR,SPADES,WORKER_DIR,OUT_DIR,STDERR_DIR4,STDOUT_DIR4,SPADES,SPADESOUT,PROFILE] --job-name denovo_unused -e "$STDERR_DIR4" -o "$STDOUT_DIR4" --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_spades.sh`
+JOB_ID=`sbatch $ARGS --export=ALL,BOWOUT=$BOWOUT,SAMPLE_DIR=$SAMPLE_DIR,BOWTIE=$BOWTIE,WORKER_DIR=$WORKER_DIR,OUT_DIR=$OUT_DIR,STDERR_DIR4=$STDERR_DIR4,STDOUT_DIR4=$STDOUT_DIR4,PROFILE=$PROFILE,SPADES=$SPADES,SPADESOUT=$SPADESOUT --job-name denovo_unused -o $STDOUT_DIR4/output.%a.out -e $STDERR_DIR4/err.%a.out --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_spades.sh`
 
 if [ "${JOB_ID}x" != "x" ]; then
-        JOB_ID=${JOB_ID#"Submitted batch job"}
+        JOB_ID=${JOB_ID#"Submitted batch job "}
 
         echo Job: \"$JOB_ID\"
         PREV_JOB_ID=$JOB_ID
 else
         echo Problem submitting job. Job terminated.
         exit 1
+fi
 
