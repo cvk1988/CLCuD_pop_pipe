@@ -12,7 +12,7 @@ export PROFILE="/home/u32/corykeith/CLCuD_pop_pipe_2/profile.txt"
 # Location of tools and indices
 export INDEX="/home/u32/corykeith/reference_genomes/bowtie2_indices"
 export BOWTIE="/home/u32/corykeith/tools/bowtie2-2.4.1-linux-x86_64"
-export SPADES="/home/u32/corykeith/tools/SPAdes-3.14.1-Linux"
+export SPADES="/home/u32/corykeith/tools/SPAdes-3.14.1-Linux/bin"
 
 #Place to store scripts
 export SCRIPT_DIR="$PWD/scripts"

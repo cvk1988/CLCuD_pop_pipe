@@ -138,3 +138,82 @@ else
         exit 1
 fi
 
+
+
+
+#
+#samtools virus sam to sorted bam with alignments
+#
+
+Prog5="SAM2BAM_virus"
+export STDERR_DIR5="$SCRIPT_DIR/err/$Prog5"
+export STDOUT_DIR5="$SCRIPT_DIR/out/$Prog5"
+init_dir "$STDERR_DIR5" "$STDOUT_DIR5"
+
+
+echo " launching $SCRIPT_DIR/run_samtools_bam_virus.sh in queue"
+echo "previous job ID $PREV_JOB_ID"
+
+JOB_ID=`sbatch $ARGS --export=ALL,SAMPLE_DIR=$SAMPLE_DIR,WORKER_DIR=$WORKER_DIR,OUT_DIR=$OUT_DIR,STDERR_DIR5=$STDERR_DIR5,STDOUT_DIR5=$STDOUT_DIR5,PROFILE=$PROFILE --job-name sam2bam -o $STDOUT_DIR5/output.%a.out -e $STDERR_DIR5/err.%a.out --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_samtools_bam_virus.sh`
+
+if [ "${JOB_ID}x" != "x" ]; then
+        JOB_ID=${JOB_ID#"Submitted batch job "}
+
+        echo Job: \"$JOB_ID\"
+        PREV_JOB_ID=$JOB_ID
+else
+        echo Problem submitting job. Job terminated.
+        exit 1
+fi
+
+#
+#samtools virus sam to sorted bam with alignments
+#
+
+Prog6="SAM2BAM_beta"
+export STDERR_DIR6="$SCRIPT_DIR/err/$Prog6"
+export STDOUT_DIR6="$SCRIPT_DIR/out/$Prog6"
+init_dir "$STDERR_DIR6" "$STDOUT_DIR6"
+
+
+echo " launching $SCRIPT_DIR/run_samtools_bam_beta.sh in queue"
+echo "previous job ID $PREV_JOB_ID"
+
+JOB_ID=`sbatch $ARGS --export=ALL,SAMPLE_DIR=$SAMPLE_DIR,WORKER_DIR=$WORKER_DIR,OUT_DIR=$OUT_DIR,STDERR_DIR6=$STDERR_DIR6,STDOUT_DIR6=$STDOUT_DIR6,PROFILE=$PROFILE --job-name sam2bam -o $STDOUT_DIR6/output.%a.out -e $STDERR_DIR6/err.%a.out --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_samtools_bam_beta.sh`
+
+if [ "${JOB_ID}x" != "x" ]; then
+        JOB_ID=${JOB_ID#"Submitted batch job "}
+
+        echo Job: \"$JOB_ID\"
+        PREV_JOB_ID=$JOB_ID
+else
+        echo Problem submitting job. Job terminated.
+        exit 1
+fi
+
+#
+#samtools virus sam to sorted bam with alignments
+#
+
+Prog7="BAM2FQ_virus"
+export STDERR_DIR7="$SCRIPT_DIR/err/$Prog7"
+export STDOUT_DIR7="$SCRIPT_DIR/out/$Prog7"
+init_dir "$STDERR_DIR7" "$STDOUT_DIR7"
+
+
+echo " launching $SCRIPT_DIR/run_samtools_consensus_virus.sh in queue"
+echo "previous job ID $PREV_JOB_ID"
+
+JOB_ID=`sbatch $ARGS --export=ALL,SAMPLE_DIR=$SAMPLE_DIR,WORKER_DIR=$WORKER_DIR,OUT_DIR=$OUT_DIR,STDERR_DIR7=$STDERR_DIR7,STDOUT_DIR7=$STDOUT_DIR7,PROFILE=$PROFILE --job-name sam2bam -o $STDOUT_DIR7/output.%a.out -e $STDERR_DIR7/err.%a.out --dependency=afterok:$PREV_JOB_ID -a 1-$NUM_JOB $SCRIPT_DIR/run_samtools_virus_consensus.sh`
+
+if [ "${JOB_ID}x" != "x" ]; then
+        JOB_ID=${JOB_ID#"Submitted batch job "}
+
+        echo Job: \"$JOB_ID\"
+        PREV_JOB_ID=$JOB_ID
+else
+        echo Problem submitting job. Job terminated.
+        exit 1
+fi
+
+

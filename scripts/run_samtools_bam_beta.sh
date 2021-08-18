@@ -14,7 +14,7 @@ R1="${SMPLE}_R2_001.fastq"
 
 ### directory for individual files go here
 
-samtools view -bo ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_virus.SAM > ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_virus.bam | samtools sort ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_virus.bam  -o ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_virus_sorted.bam 
+samtools view -bo ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_beta.SAM > ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_beta.bam | samtools sort ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_beta.bam  -o ${OUT_DIR}/${SMPLE}/bowtie2/alignments/${SMPLE}_beta_sorted.bam 
 
 
 

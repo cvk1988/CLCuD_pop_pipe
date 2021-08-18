@@ -4,18 +4,18 @@ Use of uninitialized value in exists at /home/u32/corykeith/tools/bowtie2-2.4.1-
 Use of uninitialized value in exists at /home/u32/corykeith/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 81.
 Use of uninitialized value $bt2_args[4] in join or string at /home/u32/corykeith/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 459.
 Use of uninitialized value $bt2_args[5] in join or string at /home/u32/corykeith/tools/bowtie2-2.4.1-linux-x86_64/bowtie2 line 459.
-109570 reads; of these:
-  109570 (100.00%) were paired; of these:
-    94563 (86.30%) aligned concordantly 0 times
-    4656 (4.25%) aligned concordantly exactly 1 time
-    10351 (9.45%) aligned concordantly >1 times
+94563 reads; of these:
+  94563 (100.00%) were paired; of these:
+    65726 (69.50%) aligned concordantly 0 times
+    28705 (30.36%) aligned concordantly exactly 1 time
+    132 (0.14%) aligned concordantly >1 times
     ----
-    94563 pairs aligned concordantly 0 times; of these:
-      481 (0.51%) aligned discordantly 1 time
+    65726 pairs aligned concordantly 0 times; of these:
+      4918 (7.48%) aligned discordantly 1 time
     ----
-    94082 pairs aligned 0 times concordantly or discordantly; of these:
-      188164 mates make up the pairs; of these:
-        180830 (96.10%) aligned 0 times
-        1227 (0.65%) aligned exactly 1 time
-        6107 (3.25%) aligned >1 times
-17.48% overall alignment rate
+    60808 pairs aligned 0 times concordantly or discordantly; of these:
+      121616 mates make up the pairs; of these:
+        111793 (91.92%) aligned 0 times
+        7579 (6.23%) aligned exactly 1 time
+        2244 (1.85%) aligned >1 times
+40.89% overall alignment rate

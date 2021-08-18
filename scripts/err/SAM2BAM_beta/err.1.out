@@ -1,0 +1,2 @@
+[E::hts_open_format] fail to open file '/home/u32/corykeith/CLCuD_test/RAPiD-Genomics_F159_UAZ_146201_P002_WA01_i5-515_i7-59_S269_L002/bowtie2/alignments/RAPiD-Genomics_F159_UAZ_146201_P002_WA01_i5-515_i7-59_S269_L002_beta.bam'
+[bam_sort_core] fail to open '/home/u32/corykeith/CLCuD_test/RAPiD-Genomics_F159_UAZ_146201_P002_WA01_i5-515_i7-59_S269_L002/bowtie2/alignments/RAPiD-Genomics_F159_UAZ_146201_P002_WA01_i5-515_i7-59_S269_L002_beta.bam': No such file or directory
