@@ -10,4 +10,12 @@
 
 *italics*
 
-'code'
+`code`
+
+1. order
+2. list
+3. format
+
+- unordered
+- list
+- format
