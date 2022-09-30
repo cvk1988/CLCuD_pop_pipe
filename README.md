@@ -9,10 +9,8 @@ Made with [contributors-img](https://contrib.rocks).
 
 ![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/cvk1988/CLCuD_pop_pipe)
 
-# CLCuD_pop_pipe
-
-
-## H2
+# ViCAT
+## Virus Community Assembly Tool
 
 
 ### H3
