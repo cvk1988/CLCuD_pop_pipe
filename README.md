@@ -23,7 +23,32 @@
 - R packages: ggplot2; gridExtra; plyr
 - Python (3.6 or higher) packages: Bipython; sys
 
+### Installation
 
+If tools are not installed on your HPC download the tools and install. Change the paths to the tools in the config.sh file to include the full path of the newly installed tools.
+
+`SPADES="path/to/spades"`
+
+
+
+Alternatively, create an Anaconda environment and download all of the tools with conda.
+
+`conda create -n ViCAT python=3.7`
+
+`conda activate ViCAT`
+
+`pip install [packages]`
+
+`conda install -c bioconda [tool]`
+
+### Usage
+
+Edit the config.sh file in the home directory to include paths to:
+- RAW: the path to the raw data for the run.
+- OUT_DIR: the path to the desired location for the outputs of the tool. This will be re-written each time the tool is used, so be careful to backup the results of previous runs.
+- PROFILE: the path to the file that inlcudes the sample names as they relate to the filenames. An example profile in located in the home directory.
+- [TOOLS]: any paths to tools that were not installed via Anaconda.
+- [USER_INFO]: information for the HPC scheduler.
 
 **BOLD**
 
