@@ -4,7 +4,7 @@
 
 
 
-![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url = [Paste_Your_GitHub_Repository_Link_Here](https://github.com/cvk1988/CLCuD_pop_pipe))
+![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url = (https://github.com/cvk1988/CLCuD_pop_pipe))
 
 # CLCuD_pop_pipe
 
