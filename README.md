@@ -8,6 +8,7 @@ Made with [contributors-img](https://contrib.rocks).
 
 <img src=https://komarev.com/ghpvc/?username = cvk1988/>
 
+![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url = [Paste_Your_GitHub_Repository_Link_Here](https://github.com/cvk1988/CLCuD_pop_pipe))
 
 # CLCuD_pop_pipe
 
