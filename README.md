@@ -2,7 +2,7 @@
 
 
 <a href = "https://github.com/cvk1988/CLCuD_pop_pipe/graphs/contributors">
-<img src = "https://contrib.rocks/image?repo = GitHub_username/repository_name"/>
+<img src = "https://contrib.rocks/image?repo = cvk1988/CLCuD_pop_pipe"/>
 </a>
 Made with [contributors-img](https://contrib.rocks).
 
