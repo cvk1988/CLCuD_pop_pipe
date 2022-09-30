@@ -1,19 +1,23 @@
-![Your Repository's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=cvk1988&theme=blue-green)
 
 <a href="https://github.com/cvk1988/CLCuD_pop_pipe/graphs/contributors">
 <img src="https://contrib.rocks/image?repo=cvk1988/CLCuD_pop_pipe" />
 </a>
-Made with [contributors-img](https://contrib.rocks).
 
-<img src="https://komarev.com/ghpvc/?username=cvk1988"/>
+<img src="https://komarev.com/ghpvc/?username=cvk1988"/> ![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/cvk1988/CLCuD_pop_pipe/) 
 
-![Hits](https://hitcounter.pythonanywhere.com/count/tag.svg?url=https://github.com/cvk1988/CLCuD_pop_pipe)
+
 
 # ViCAT
+
 ## Virus Community Assembly Tool
+  A tool that assembles and characterizes virus communities from target enrichment high-throughput sequncing (TE-HTS)  data within and between samples. To be used on an HPC with slurm scheduler. 
 
-
-### H3
+### Dependencies
+- [SPAdes](https://github.com/ablab/spades): at least version 3.14.1
+- [SeqKit](https://github.com/shenwei356/seqkit)
+- 
+- Local Blast
+- 
 
 **BOLD**
 
