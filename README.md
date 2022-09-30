@@ -1,10 +1,6 @@
 ![Your Repository's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=cvk1988&theme=blue-green)
 
-<!-- Copy-paste in your Readme.md file -->
-<a href = "https://github.com/cvk1988/CLCuD_pop_pipe/graphs/contributors">
-<img src = "https://contrib.rocks/image?repo = cvk1988/CLCuD_pop_pipe"/>
-</a>
-Made with [contributors-img](https://contrib.rocks).
+
 
 <img src=https://komarev.com/ghpvc/?username = cvk1988/>
 
