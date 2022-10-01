@@ -7,7 +7,7 @@
 
 
 
-# ViCAT
+# **ViCAT**
 
 ## Virus Community Assembly Tool
   A tool that assembles and characterizes virus communities from target enrichment high-throughput sequncing (TE-HTS)  data within and between samples. To be used on an HPC with slurm scheduler. 
@@ -42,24 +42,24 @@ Alternatively, create an Anaconda environment and download all of the tools with
 `conda install -c bioconda [tool]`
 
 ### Usage
+*OPTIONAL lines of code are identified by comment boxes in the respective scripts.*
 
-Edit the config.sh file in the home directory to include paths to:
-- RAW: the path to the raw data for the run.
-- OUT_DIR: the path to the desired location for the outputs of the tool. This will be re-written each time the tool is used, so be careful to backup the results of previous runs.
-- PROFILE: the path to the file that inlcudes the sample names as they relate to the filenames. An example profile in located in the home directory.
-- [TOOLS]: any paths to tools that were not installed via Anaconda.
-- [USER_INFO]: information for the HPC scheduler.
+1. Edit the config.sh file in the home directory to include paths to:
+    - RAW: the path to the raw data for the run.
+    - OUT_DIR: the path to the desired location for the outputs of the tool. This will be re-written each time the tool is used, so be careful to backup the results of previous runs.
+    - PROFILE: the path to the file that inlcudes the sample names as they relate to the filenames. An example profile in located in the home directory.
+    - [TOOLS]: any paths to tools that were not installed via Anaconda.
+    - [USER_INFO]: information for the HPC scheduler.
+2. Edit the run_spades.sh lines 13 and 14 that set the file suffixes. The file can be found in CWD/scripts.
 
-**BOLD**
+    `F1="${SMPLE}_R1.fastq"`
+    
+    `R1="${SMPLE}_R2.fastq"`
+    
+3. OPTIONAL but suggested: edit the run_covgraph_for.sh lines 44-61 to remove portions of the sample name which may be uninformative and cause difficulties in reading coverage graph titles in the output files. The file can be found in CWD/scripts.
+4. OPTIONAL: edit the run_blastn.sh file on line 32 to change blast options.
+5. OPTIONAL: edit the run_collect. file on lines 25 and 42 to change filtering criteria for output files from Step 3. The file can be found in CWD/scripts.
+6. OPTIONAL: 
 
-*italics*
 
-`code`
 
-1. order
-2. list
-3. format
-
-- unordered
-- list
-- format
