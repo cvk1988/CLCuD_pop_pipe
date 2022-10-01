@@ -45,7 +45,7 @@ Alternatively, create an Anaconda environment and download all of the tools with
 ### Usage
 *OPTIONAL lines of code are identified by comment boxes in the respective scripts.*
 
-1. Edit the config.sh file in the home directory to include paths to:
+1. Edit the `config.sh` file in the home directory to include paths to:
     - RAW: the path to the raw data for the run.
     - OUT_DIR: the path to the desired location for the outputs of the tool. This will be re-written each time the tool is used, so be careful to backup the results of previous runs.
     - PROFILE: the path to the file that inlcudes the sample names as they relate to the filenames. An example profile in located in the home directory.
@@ -63,5 +63,7 @@ Alternatively, create an Anaconda environment and download all of the tools with
 6. OPTIONAL: edit the `run_cdhit.sh` file on line 20 to change percent similarity of blast hits for clustering. The file can be found in `CWD/scripts`.
 
 
+To run the tool, go to the tools directory and execute the `run.sh` file.
 
+`./run.sh`
 
