@@ -20,6 +20,7 @@
 - [CD-HIT](http://bioinformatics.org/cd-hit/)
 - [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml)
 - [samtools](http://www.htslib.org/)
+- [bamtools](https://github.com/pezmaster31/bamtools)
 - R packages: ggplot2; gridExtra; plyr
 - Python (3.6 or higher) packages: Bipython; sys
 
@@ -50,16 +51,17 @@ Alternatively, create an Anaconda environment and download all of the tools with
     - PROFILE: the path to the file that inlcudes the sample names as they relate to the filenames. An example profile in located in the home directory.
     - [TOOLS]: any paths to tools that were not installed via Anaconda.
     - [USER_INFO]: information for the HPC scheduler.
-2. Edit the run_spades.sh lines 13 and 14 that set the file suffixes. The file can be found in CWD/scripts.
+2. Edit the `run_spades.sh` lines 13 and 14 that set the file suffixes. The file can be found in `CWD/scripts`.
 
     `F1="${SMPLE}_R1.fastq"`
     
     `R1="${SMPLE}_R2.fastq"`
     
-3. OPTIONAL but suggested: edit the run_covgraph_for.sh lines 44-61 to remove portions of the sample name which may be uninformative and cause difficulties in reading coverage graph titles in the output files. The file can be found in CWD/scripts.
-4. OPTIONAL: edit the run_blastn.sh file on line 32 to change blast options.
-5. OPTIONAL: edit the run_collect. file on lines 25 and 42 to change filtering criteria for output files from Step 3. The file can be found in CWD/scripts.
-6. OPTIONAL: 
+3. OPTIONAL but ***suggested***: edit the `run_covgraph_for.sh` lines 44-61 to remove portions of the sample name which may be uninformative and cause difficulties in reading coverage graph titles in the output files. The file can be found in `CWD/scripts`.
+4. OPTIONAL: edit the `run_blastn.sh` file on line 32 to change blast options.
+5. OPTIONAL: edit the `run_collect_contigs_accessions.sh` file on lines 25 and 42 to change filtering criteria for output files from Step 3. The file can be found in `CWD/scripts`. The file can be found in `CWD/scripts`.
+6. OPTIONAL: edit the `run_cdhit.sh` file on line 20 to change percent similarity of blast hits for clustering. The file can be found in `CWD/scripts`.
+
 
 
 
